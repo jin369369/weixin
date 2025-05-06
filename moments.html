@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>跳转朋友圈</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        // 尝试跳转到微信朋友圈发布页（部分安卓有效，iOS可能受限）
+        window.location.href = "weixin://dl/moments?text=这里是预填的内容";
+        
+        // 如果跳转失败，提示用户手动打开微信
+        setTimeout(function() {
+            alert("跳转失败，请手动打开微信发朋友圈~");
+        }, 2000);
+    </script>
+</body>
+</html>
