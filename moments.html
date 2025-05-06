@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>跳转朋友圈</title>
+    <title>引导用户发朋友圈</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            background-color: #07c160;
+            color: white;
+            border: none;
+        }
+        .tip {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
+
+    <h2>点击下方按钮，前往微信发朋友圈</h2>
+    <button onclick="openWeChat()">打开微信</button>
+
+    <div class="tip">如果未跳转成功，请手动打开微信 → 发现 → 朋友圈</div>
+
     <script>
-        // 尝试跳转到微信朋友圈发布页（部分安卓有效，iOS可能受限）
-        window.location.href = "weixin://dl/moments?text=这里是预填的内容";
-        
-        // 如果跳转失败，提示用户手动打开微信
-        setTimeout(function() {
-            alert("跳转失败，请手动打开微信发朋友圈~");
-        }, 2000);
+        function openWeChat() {
+            // 用户交互触发 Scheme 跳转（安卓部分可行）
+            window.location.href = "weixin://dl/moments";
+
+            // 延时提示用户
+            setTimeout(function () {
+                alert("如果没有跳转，请手动打开微信发朋友圈~");
+            }, 2000);
+        }
     </script>
+
 </body>
 </html>
